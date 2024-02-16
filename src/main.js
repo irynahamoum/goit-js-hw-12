@@ -22,7 +22,7 @@ let totalPages = 0;
 
 async function handleFormSubmit(event) {
   event.preventDefault();
-  showLoadMoreBtn();
+  hideLoadMoreBtn();
 
   galleryGrid.innerHTML = '';
 
@@ -36,6 +36,8 @@ async function handleFormSubmit(event) {
       message: 'Search field is empty',
       position: 'topRight',
     });
+
+    hideLoader();
     return;
   }
 
@@ -59,6 +61,8 @@ async function handleFormSubmit(event) {
         typeof error === 'string' ? error : 'Something went wrong, sorry!',
       position: 'topRight',
     });
+  } finally {
+    hideLoader();
   }
 
   event.target.reset();
