@@ -63,6 +63,7 @@ async function handleFormSubmit(event) {
     });
   } finally {
     hideLoader();
+    // hideLoadMoreBtn();
   }
 
   event.target.reset();
